@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-test การรวมเขตเศรษฐกิจ</title>
+    <meta name="description" content="ระบบประเมินผลการเรียนรู้หลังเรียนการรวมเขตเศรษฐกิจ">
+    <meta name="theme-color" content="#007AFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Economic Integration Post-test">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iNDAiIGZpbGw9IiMwMDdBRkYiLz4KPHN2ZyB4PSI0MCIgeT0iNDAiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IndoaXRlIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIi8+Cjwvc3ZnPgo8L3N2Zz4K">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #000;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .screen {
+            display: none;
+            animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Welcome Screen */
+        .welcome-screen {
+            padding: 60px 20px 20px;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            border-radius: 30px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 20px 40px rgba(0, 201, 255, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .welcome-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .welcome-subtitle {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .start-button {
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 18px 36px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 201, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .start-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 201, 255, 0.5);
+        }
+
+        .start-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 44px 20px 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-title {
+            font-size: 17px;
+            font-weight: 600;
+            text-align: center;
+            color: #000;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            padding: 20px;
+            background: white;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #E5E5EA;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00C9FF, #92FE9D);
+            border-radius: 3px;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+            box-shadow: 0 0 10px rgba(0, 201, 255, 0.5);
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 15px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Question Card */
+        .question-container {
+            padding: 0 20px 20px;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .question-category {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .question-category.knowledge { background: linear-gradient(135deg, #FF6B6B, #FFE66D); }
+        .question-category.analysis { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
+        .question-category.application { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .question-category.synthesis { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .question-category.evaluation { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #000;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background: #F8F9FA;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 18px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .option:hover::before {
+            left: 100%;
+        }
+
+        .option:hover {
+            background: #F0F4F7;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .option.selected {
+            background: linear-gradient(135deg, rgba(0, 201, 255, 0.1), rgba(146, 254, 157, 0.1));
+            border-color: #00C9FF;
+            color: #0066CC;
+            box-shadow: 0 5px 20px rgba(0, 201, 255, 0.2);
+        }
+
+        .option-letter {
+            width: 36px;
+            height: 36px;
+            background: #8E8E93;
+            color: white;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .option.selected .option-letter {
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            transform: scale(1.1);
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            padding: 20px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-button {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            border-radius: 15px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .prev-button {
+            background: #F2F2F7;
+            color: #007AFF;
+        }
+
+        .prev-button:active {
+            background: #E5E5EA;
+            transform: scale(0.98);
+        }
+
+        .next-button {
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
+        }
+
+        .next-button:active {
+            transform: scale(0.98);
+        }
+
+        .next-button:disabled {
+            background: #C6C6C8;
+            color: #8E8E93;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* Results Screen */
+        .results-screen {
+            padding: 0 0 40px 0;
+        }
+
+        .results-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .results-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .results-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .chart-container {
+            padding: 30px 20px;
+            background: white;
+            margin: -20px 20px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #000;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .radar-chart {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .scores-container {
+            margin: 20px;
+        }
+
+        .score-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .answers-review {
+            margin: 20px;
+        }
+
+        .review-section {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .review-item {
+            background: #F8F9FA;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid #E5E5EA;
+        }
+
+        .review-item.correct {
+            border-left-color: #4ECDC4;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 255, 255, 0.8));
+        }
+
+        .review-item.incorrect {
+            border-left-color: #FF6B6B;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 255, 255, 0.8));
+        }
+
+        .review-question {
+            font-size: 14px;
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .review-answer {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .review-correct {
+            font-size: 13px;
+            color: #4ECDC4;
+            font-weight: 500;
+        }
+
+        .review-explanation {
+            font-size: 13px;
+            color: #007AFF;
+            margin-top: 8px;
+            padding: 10px;
+            background: rgba(0, 122, 255, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid #007AFF;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #8E8E93;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .score-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #000;
+            flex: 1;
+        }
+
+        .score-value {
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .performance-level {
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 15px;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+
+        .performance-level.excellent {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+        }
+
+        .performance-level.good {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .performance-level.average {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+        }
+
+        .performance-level.needs-improvement {
+            background: linear-gradient(135deg, #FF6B6B, #FFE66D);
+            color: white;
+        }
+
+        .restart-button {
+            margin: 20px;
+            background: linear-gradient(135deg, #00C9FF, #92FE9D);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 18px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: calc(100% - 40px);
+            box-shadow: 0 8px 25px rgba(0, 201, 255, 0.3);
+        }
+
+        .restart-button:active {
+            transform: scale(0.98);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .container { background: rgba(28, 28, 30, 0.95); }
+            .nav-bar { background: rgba(28, 28, 30, 0.95); }
+            .question-card { background: #1C1C1E; }
+            .question-text { color: #fff; }
+            .option { background: #2C2C2E; color: #fff; }
+            .option:hover { background: #3A3A3C; }
+            .chart-container { background: #1C1C1E; }
+            .score-item { background: #1C1C1E; }
+            .score-label { color: #fff; }
+            .stat-card { background: #1C1C1E; }
+            .review-section { background: #1C1C1E; }
+            .review-title { color: #fff; }
+            .review-question { color: #fff; }
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #00C9FF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div class="screen active" id="welcomeScreen">
+            <div class="welcome-screen">
+                <div class="logo">🌐</div>
+                <h1 class="welcome-title">Post-test Assessment</h1>
+                <p class="welcome-subtitle">ประเมินผลการเรียนรู้หลังเรียน<br>การรวมเขตเศรษฐกิจ</p>
+                <button class="start-button" onclick="startTest()">เริ่มทำแบบทดสอบ</button>
+            </div>
+        </div>
+
+        <!-- Question Screen -->
+        <div class="screen" id="questionScreen">
+            <div class="nav-bar">
+                <div class="nav-title">แบบทดสอบหลังเรียน</div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">ข้อ 1 จาก 30</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-card">
+                    <div class="question-category" id="questionCategory">ความรู้และความเข้าใจ</div>
+                    <div class="question-text" id="questionText">กำลังโหลดคำถาม...</div>
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-button prev-button" onclick="previousQuestion()" id="prevButton" style="display: none;">ก่อนหน้า</button>
+                <button class="nav-button next-button" onclick="nextQuestion()" id="nextButton" disabled>ถัดไป</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="screen" id="resultsScreen">
+            <div class="results-header">
+                <h1 class="results-title">ผลการทดสอบ</h1>
+                <p class="results-subtitle">คะแนนรวม: <span id="totalScore">0</span>/100</p>
+            </div>
+
+            <div class="summary-stats" id="summaryStats">
+                <!-- Summary statistics will be populated here -->
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">ผลการประเมินศักยภาพ 5 ด้าน</h3>
+                <canvas class="radar-chart" id="radarChart" width="280" height="280"></canvas>
+            </div>
+
+            <div class="scores-container" id="scoresContainer">
+                <!-- Individual scores will be populated here -->
+            </div>
+
+            <div class="answers-review" id="answersReview">
+                <!-- Review answers will be populated here -->
+            </div>
+
+            <button class="restart-button" onclick="restartTest()">ทำแบบทดสอบใหม่</button>
+        </div>
+    </div>
+
+    <script>
+        // Questions database
+        const questions = [
+            // ความรู้และความเข้าใจ (Knowledge & Comprehension) - 6 ข้อ
+            {
+                category: "ความรู้และความเข้าใจ",
+                categoryClass: "knowledge",
+                text: "การรวมเขตเศรษฐกิจ (Economic Integration) หมายถึงอะไร?",
+                options: [
+                    "การยกเลิกอุปสรรคทางการค้าระหว่างประเทศในกลุ่มเดียวกัน",
+                    "การรวมกันของบริษัทข้ามชาติในภูมิภาค",
+                    "การสร้างเงินตราร่วมของประเทศต่างๆ",
+                    "การแข่งขันทางเศรษฐกิจระหว่างประเทศ"
+                ],
+                correct: 0,
+                explanation: "การรวมเขตเศรษฐกิจหมายถึง ข้อตกลงระหว่างกลุ่มประเทศต่างๆ ในภูมิภาคใดภูมิภาคหนึ่ง ที่ทำข้อตกลงร่วมกันที่จะยกเลิก ละเว้น หรือผ่อนปรน การจำกัดการค้าเสรีของสินค้าหรือบริการ"
+            },
+            {
+                category: "ความรู้และความเข้าใจ",
+                categoryClass: "knowledge",
+                text: "ประเภทของการรวมกลุ่มทางเศรษฐกิจที่มีระดับความร่วมมือสูงสุดคือข้อใด?",
+                options: [
+                    "เขตการค้าเสรี (Free Trade Area)",
+                    "สหภาพศุลกากร (Customs Union)",
+                    "ตลาดร่วม (Common Market)",
+                    "สหภาพเหนือชาติ (Supranational Union)"
+                ],
+                correct: 3,
+                explanation: "สหภาพเหนือชาติ (Supranational Union) เป็นเป้าหมายสูงสุดของการรวมกลุ่มกันทางเศรษฐกิจ โดยมีความมุ่งหวังให้เป็นการรวมกลุ่มในทุกๆ ด้าน (การทหาร, การเงิน ฯลฯ) ภายใต้รัฐบาลร่วม"
+            },
+            {
+                category: "ความรู้และความเข้าใจ",
+                categoryClass: "knowledge",
+                text: "RCEP (Regional Comprehensive Economic Partnership) มีผลบังคับใช้เมื่อใด?",
+                options: [
+                    "1 มกราคม 2564",
+                    "1 มกราคม 2565",
+                    "1 มกราคม 2566",
+                    "1 มกราคม 2567"
+                ],
+                correct: 1,
+                explanation: "RCEP มีผลบังคับใช้ 1 มกราคม 2565 (2022) เป็นเขตการค้าเสรีที่ใหญ่ที่สุดของโลก มีไทยเป็น 1 ใน 15 ประเทศที่ร่วมก่อตั้ง"
+            },
+            {
+                category: "ความรู้และความเข้าใจ",
+                categoryClass: "knowledge",
+                text: "EU (European Union) ปัจจุบันมีสมาชิกกี่ประเทศ หลังจาก Brexit?",
+                options: [
+                    "25 ประเทศ",
+                    "26 ประเทศ",
+                    "27 ประเทศ",
+                    "28 ประเทศ"
+                ],
+                correct: 2,
+                explanation: "EU ปัจจุบันมีสมาชิก 27 ประเทศ หลังจาก Brexit (เครือจักรภาพอังกฤษขอถอนตัวออก) ทำข้อตกลงยกเลิกอุปสรรคทางการค้าระหว่างกัน และพัฒนาการสร้างระบบการเงินเดียวกัน (เงินยูโร)"
+            },
+            {
+                category: "ความรู้และความเข้าใจ",
+                categoryClass: "knowledge",
+                text: "NAFTA ได้เปลี่ยนชื่อเป็นอะไรในปัจจุบัน?",
+                options: [
+                    "USMCA (United States-Mexico-Canada Agreement)",
+                    "CUSMA (Canada-United States-Mexico Agreement)",
+                    "ACEUM (Acuerdo Comercial Estados Unidos-México)",
+                    "ทั้งหมดข้างต้นถูกต้อง"
+                ],
+                correct: 3,
+                explanation: "NAFTA เปลี่ยนเป็น USMCA ตั้งแต่ 1 ก.ค. 2020 โดยแต่ละประเทศเรียกชื่อต่างกัน: สหรัฐใช้ USMCA, แคนาดาใช้ CUSMA, เม็กซิโกใช้ ACEUM แต่เป็นข้อตกลงเดียวกัน"
+            },
+            {
+                category: "ความรู้และความเข้าใจ",
+                categoryClass: "knowledge",
+                text: "AfCFTA (African Continental Free Trade Area) เป็นเขตการค้าเสรีที่มีลักษณะพิเศษอย่างไร?",
+                options: [
+                    "มีมูลค่า GDP สูงที่สุดในโลก",
+                    "เป็นเขตการค้าเสรีที่มีจำนวนประเทศสมาชิกมากที่สุด",
+                    "เป็นเขตการค้าเสรีแรกในทวีปแอฟริกา",
+                    "มีประชากรมากที่สุดในโลก"
+                ],
+                correct: 1,
+                explanation: "AfCFTA เป็นเขตการค้าเสรีที่ใหญ่ที่สุดนับตั้งแต่มีการก่อตั้ง WTO ในปี 1995 โดยมีสมาชิก 54 ประเทศใน 55 ประเทศแอฟริกา (ยกเว้นเอริเทรีย)"
+            },
+
+            // การวิเคราะห์ (Analysis) - 6 ข้อ
+            {
+                category: "การวิเคราะห์",
+                categoryClass: "analysis",
+                text: "จงวิเคราะห์ความแตกต่างระหว่าง Free Trade Area และ Customs Union",
+                options: [
+                    "FTA มีการค้าเสรีเท่านั้น ส่วน Customs Union มีการค้าเสรีและอัตราภาษีนำเข้าจากภายนอกเดียวกัน",
+                    "FTA ยกเลิกภาษีทั้งหมด ส่วน Customs Union ยกเลิกบางส่วน",
+                    "ไม่มีความแตกต่างกัน เป็นเพียงชื่อเรียกที่ต่างกัน",
+                    "FTA เน้นสินค้า ส่วน Customs Union เน้นบริการ"
+                ],
+                correct: 0,
+                explanation: "FTA เป็นการยกเลิกอุปสรรคการค้าระหว่างสมาชิก แต่ยังมีอิสระในการตั้งอัตราภาษีกับประเทศนอกกลุ่มต่างกัน ส่วน Customs Union มีการกำหนดอัตราภาษีนำเข้าจากประเทศนอกกลุ่มในอัตราเดียวกัน (Common External Tariff)"
+            },
+            {
+                category: "การวิเคราะห์",
+                categoryClass: "analysis",
+                text: "ทำไม EFTA จึงหมดความสำคัญลงในปัจจุบัน?",
+                options: [
+                    "เนื่องจากมีสมาชิกน้อยเกินไป",
+                    "เนื่องจากมีหลายประเทศถอนตัวออกไปเข้าร่วมกับ EU",
+                    "เนื่องจากไม่สามารถแข่งขันกับ NAFTA ได้",
+                    "เนื่องจากขาดการสนับสนุนจากสหรัฐอเมริกา"
+                ],
+                correct: 1,
+                explanation: "EFTA หมดความสำคัญลงเพราะมีหลายประเทศถอนตัวจาก EFTA ไปเข้าร่วมกับ EU ทำให้เหลือสมาชิกเพียงไอซ์แลนด์ ลิกเตนสไตน์ นอร์เวย์ และสวิตเซอร์แลนด์"
+            },
+            {
+                category: "การวิเคราะห์",
+                categoryClass: "analysis",
+                text: "จงวิเคราะห์ปัจจัยที่ทำให้ LAFTA ไม่ประสบความสำเร็จ",
+                options: [
+                    "ความแตกต่างของขนาดเศรษฐกิจและโครงสร้างการผลิตที่คล้ายกัน",
+                    "การขาดการสนับสนุนจากสหรัฐอเมริกา",
+                    "ภาษาที่แตกต่างกันระหว่างประเทศสมาชิก",
+                    "การแข่งขันกับ MERCOSUR"
+                ],
+                correct: 0,
+                explanation: "LAFTA ไม่ประสบความสำเร็จเพราะประเทศสมาชิกมีความแตกต่างในโครงสร้างและระดับการพัฒนาเศรษฐกิจ มีโครงสร้างการผลิตที่คล้ายกัน จึงต้องยังพึ่งพาการค้ากับประเทศนอกกลุ่มอยู่มาก"
+            },
+            {
+                category: "การวิเคราะห์",
+                categoryClass: "analysis",
+                text: "การที่ RCEP ครอบคลุม 30% ของ GDP โลกส่งผลอย่างไร?",
+                options: [
+                    "ทำให้เกิดการแข่งขันกับ WTO",
+                    "สร้างอำนาจต่อรองทางการค้ากับกลุ่มอื่นและเป็นแรงผลักดันการค้าโลก",
+                    "ลดความสำคัญของสหรัฐอเมริกาในการค้าโลก",
+                    "ทำให้ประเทศนอกกลุ่มเสียเปรียบ"
+                ],
+                correct: 1,
+                explanation: "RCEP ที่ครอบคลุม 30% ของ GDP โลกทำให้มีอำนาจต่อรองทางการค้าสูง เป็นแรงผลักดันสำคัญของการค้าโลก และสร้างมาตรฐานการค้าใหม่ในภูมิภาคเอเชีย-แปซิฟิก"
+            },
+            {
+                category: "การวิเคราะห์",
+                categoryClass: "analysis",
+                text: "ทำไม ASEAN จึงประสบความสำเร็จมากกว่า LAFTA?",
+                options: [
+                    "ASEAN มีผู้นำที่แข็งแกร่งกว่า",
+                    "ASEAN มีความหลากหลายทางเศรษฐกิจและเน้นความร่วมมือมากกว่าการแข่งขัน",
+                    "ASEAN ได้รับการสนับสนุนจากมหาอำนาจ",
+                    "ASEAN มีพื้นที่ขนาดเล็กกว่า"
+                ],
+                correct: 1,
+                explanation: "ASEAN ประสบความสำเร็จเพราะมีความหลากหลายทางเศรษฐกิจ (ทรัพยากร อุตสาหกรรม บริการ) ทำให้เกิดการเสริมกันมากกว่าการแข่งขัน และเน้นหลัก ASEAN Way ที่ให้ความสำคัญกับฉันทามติและการไม่แทรกแซงกิจการภายใน"
+            },
+            {
+                category: "การวิเคราะห์",
+                categoryClass: "analysis",
+                text: "จงวิเคราะห์ความสำคัญของ Common External Tariff ในสหภาพศุลกากร",
+                options: [
+                    "ป้องกันการลักลอบนำเข้าสินค้าผ่านประเทศที่มีภาษีต่ำ",
+                    "เพิ่มรายได้ให้กับประเทศสมาชิก",
+                    "ลดการแข่งขันจากประเทศนอกกลุ่ม",
+                    "สร้างความเป็นเอกภาพในการเจรจาการค้า"
+                ],
+                correct: 0,
+                explanation: "Common External Tariff มีความสำคัญในการป้องกัน Trade Deflection คือการที่สินค้าจากประเทศภายนอกจะถูกนำเข้าผ่านประเทศสมาชิกที่มีอัตราภาษีต่ำที่สุด แล้วส่งต่อไยังประเทศอื่นในกลุ่มโดยไม่เสียภาษี"
+            },
+
+            // การประยุกต์ใช้ (Application) - 6 ข้อ
+            {
+                category: "การประยุกต์ใช้",
+                categoryClass: "application",
+                text: "บริษัทไทยที่ต้องการใช้ประโยชน์จาก RCEP ควรทำอย่างไร?",
+                options: [
+                    "เน้นส่งออกไปยังประเทศนอกกลุ่ม RCEP",
+                    "ปรับกลยุทธ์ Supply Chain ให้ครอบคลุมประเทศสมาชิก RCEP และใช้ประโยชน์จากการยกเลิกภาษี",
+                    "ลดการผลิตในประเทศไทย",
+                    "โฟกัสตลาดในประเทศเท่านั้น"
+                ],
+                correct: 1,
+                explanation: "บริษัทไทยควรปรับกลยุทธ์ Supply Chain ให้ครอบคลุม 15 ประเทศสมาชิก RCEP เพื่อใช้ประโยชน์จากการยกเลิกภาษีศุลกากร 95-99% และขยายตลาดที่มีประชากรรวม 2.3 พันล้านคน"
+            },
+            {
+                category: "การประยุกต์ใช้",
+                categoryClass: "application",
+                text: "หากไทยต้องการเข้าร่วม CPTPP ควรเตรียมความพร้อมด้านใด?",
+                options: [
+                    "เพิ่มการส่งออกสินค้าเกษตรเท่านั้น",
+                    "ปรับปรุงมาตรฐานแรงงาน สิ่งแวดล้อม Digital Trade และ SOEs ให้สอดคล้องกับมาตรฐาน CPTPP",
+                    "ลดการนำเข้าจากประเทศอื่น",
+                    "เน้นการค้าทวิภาคีแทนพหุภาคี"
+                ],
+                correct: 1,
+                explanation: "CPTPP มีมาตรฐานสูงสุดในโลก ไทยต้องปรับปรุงมาตรฐานแรงงานและสิ่งแวดล้อม, พัฒนา Digital Trade และ E-commerce, ปรับการดำเนินงานของ SOEs และสร้าง Regulatory Coherence"
+            },
+            {
+                category: "การประยุกต์ใช้",
+                categoryClass: "application",
+                text: "ผู้ประกอบการไทยจะใช้ประโยชน์จาก DEPA อย่างไร?",
+                options: [
+                    "เพิ่มการส่งออกสินค้าแบบดั้งเดิม",
+                    "พัฒนาธุรกิจ Digital Services, E-commerce, Fintech และ Cross-border Data Flow",
+                    "ลดการใช้เทคโนโลยีดิจิทัล",
+                    "โฟกัสตลาดภายในประเทศ"
+                ],
+                correct: 1,
+                explanation: "DEPA เป็นข้อตกลงการค้าดิจิทัลครบวงจรแรกของโลก ครอบคลุม Digital Trade, E-commerce, การคุ้มครองข้อมูล, Fintech, AI และ Cross-border Innovation ซึ่งเป็นโอกาสสำคัญสำหรับธุรกิจดิจิทัลไทย"
+            },
+            {
+                category: "การประยุกต์ใช้",
+                categoryClass: "application",
+                text: "บริษัทข้ามชาติที่ต้องการใช้ไทยเป็น Regional Hub ในอาเซียนควรพิจารณาปัจจัยใด?",
+                options: [
+                    "ต้นทุนแรงงานต่ำเท่านั้น",
+                    "ที่ตั้งทางภูมิศาสตร์ โครงสร้างพื้นฐาน ข้อตกลง FTA และ AEC Connectivity",
+                    "ขนาดตลาดในประเทศเท่านั้น",
+                    "ระบบการเมืองเท่านั้น"
+                ],
+                correct: 1,
+                explanation: "ไทยมีข้อได้เปรียบเป็น Regional Hub ด้วยที่ตั้งใจกลางอาเซียน, โครงสร้างพื้นฐานดี, มี FTA หลายฉบับ, AEC Connectivity และเป็นสมาชิก RCEP ที่ช่วยเชื่อมโยงตลาดขนาดใหญ่"
+            },
+            {
+                category: "การประยุกต์ใช้",
+                categoryClass: "application",
+                text: "SMEs ไทยจะปรับตัวรับมือกับ AfCFTA ที่จะส่งผลต่อตลาดโลกอย่างไร?",
+                options: [
+                    "หยุดการส่งออกไปแอฟริกา",
+                    "ศึกษาโอกาสตลาดแอฟริกาและพัฒนาผลิตภัณฑ์ที่เหมาะสม เนื่องจาก AfCFTA จะเพิ่มอำนาจซื้อในทวีปแอฟริกา",
+                    "เน้นตลาดเอเชียเท่านั้น",
+                    "ลดการผลิตสินค้า"
+                ],
+                correct: 1,
+                explanation: "AfCFTA จะเพิ่มการค้าภายในแอฟริกาจาก 15-18% เป็น 25-30% และสร้างงาน 18 ล้านตำแหน่ง ทำให้อำนาจซื้อเพิ่มขึ้น เป็นโอกาสสำคัญสำหรับ SMEs ไทยในการขยายตลาดใหม่"
+            },
+            {
+                category: "การประยุกต์ใช้",
+                categoryClass: "application",
+                text: "บริษัทไทยที่ทำธุรกิจกับ EU หลัง Brexit ควรปรับกลยุทธ์อย่างไร?",
+                options: [
+                    "หยุดการค้ากับยุโรปทั้งหมด",
+                    "แยกกลยุทธ์: UK ใช้ FTA ทวิภาคี, EU 27 ประเทศใช้กรอบ EU-Thailand FTA",
+                    "เน้นการค้ากับ UK เท่านั้น",
+                    "ไม่ต้องปรับเปลี่ยนอะไร"
+                ],
+                correct: 1,
+                explanation: "หลัง Brexit ต้องแยกกลยุทธ์: UK มี FTA กับไทยแยกต่างหาก ส่วน EU 27 ประเทศจะใช้กรอบ EU-Thailand FTA ในอนาคต และต้องปฏิบัติตามกฎระเบียบที่อาจแตกต่างกัน"
+            },
+
+            // การสังเคราะห์และความคิดสร้างสรรค์ (Synthesis & Creativity) - 6 ข้อ
+            {
+                category: "การสังเคราะห์และความคิดสร้างสรรค์",
+                categoryClass: "synthesis",
+                text: "จงสังเคราะห์แนวโน้มการรวมกลุ่มทางเศรษฐกิจในศตวรรษที่ 21",
+                options: [
+                    "กลับไปสู่การค้าแบบทวิภาคีเท่านั้น",
+                    "Digital Integration, Green Trade, Mega-Regional Blocs และ Cross-Continental Partnerships",
+                    "การรวมกลุ่มจะลดลงเนื่องจากโลกาภิวัตน์",
+                    "เน้นการค้าสินค้าแบบดั้งเดิม"
+                ],
+                correct: 1,
+                explanation: "แนวโน้มใหม่ของการรวมกลุ่มเน้น Digital Integration (DEPA), Green Trade และ ESG, Mega-Regional Blocs (RCEP, AfCFTA), Cross-Continental Partnerships และการครอบคลุมประเด็นใหม่เช่น Cybersecurity, Data Protection"
+            },
+            {
+                category: "การสังเคราะห์และความคิดสร้างสรรค์",
+                categoryClass: "synthesis",
+                text: "หากคุณเป็นนักออกแบบนโยบายการรวมกลุ่มยุคใหม่ จะเน้นประเด็นใดเป็นหลัก?",
+                options: [
+                    "การลดภาษีศุลกากรเท่านั้น",
+                    "Digital Governance, Climate Action, Supply Chain Resilience และ Inclusive Growth",
+                    "การแข่งขันด้านราคาเท่านั้น",
+                    "การคุ้มครองอุตสาหกรรมภายในประเทศ"
+                ],
+                correct: 1,
+                explanation: "การรวมกลุ่มยุคใหม่ต้องครอบคลุม Digital Governance (AI, Data, Cybersecurity), Climate Action (Carbon Trading, Green Supply Chain), Supply Chain Resilience (หลัง COVID-19) และ Inclusive Growth ที่ทำให้ทุกภาคส่วนได้ประโยชน์"
+            },
+            {
+                category: "การสังเคราะห์และความคิดสร้างสรรค์",
+                categoryClass: "synthesis",
+                text: "จงคิดโมเดลการรวมกลุ่มใหม่ที่เหมาะสมกับยุค Post-COVID-19",
+                options: [
+                    "กลับไปใช้โมเดลเดิมทั้งหมด",
+                    "Resilient Integration: เน้น Supply Chain Diversification, Digital Connectivity, Health Security และ Green Recovery",
+                    "ยกเลิกการรวมกลุ่มทั้งหมด",
+                    "เน้นการรวมกลุ่มภายในประเทศเท่านั้น"
+                ],
+                correct: 1,
+                explanation: "Post-COVID โมเดลใหม่ต้องเน้น Resilient Integration ที่มี Supply Chain Diversification (ไม่พึ่งพาประเทศเดียว), Digital Connectivity (Remote Work, E-commerce), Health Security (Vaccine Cooperation) และ Green Recovery"
+            },
+            {
+                category: "การสังเคราะห์และความคิดสร้างสรรค์",
+                categoryClass: "synthesis",
+                text: "จงออกแบบกลยุทธ์การใช้ประโยชน์จากการรวมกลุ่มหลายระดับสำหรับไทย",
+                options: [
+                    "เลือกร่วมเพียงกลุ่มเดียว",
+                    "Multi-layered Strategy: ASEAN เป็นฐาน, RCEP เป็น Regional Platform, CPTPP เป็น High-Standard Gateway",
+                    "หยุดการรวมกลุ่มทั้งหมด",
+                    "เน้นการค้าทวิภาคีเท่านั้น"
+                ],
+                correct: 1,
+                explanation: "ไทยควรใช้ Multi-layered Strategy: ASEAN เป็นฐานสำคัญ, RCEP เป็น Regional Platform เชื่อมตลาดใหญ่, CPTPP เป็น High-Standard Gateway สู่ตลาดพัฒนาแล้ว และ DEPA เป็น Digital Pioneer"
+            },
+            {
+                category: "การสังเคราะห์และความคิดสร้างสรรค์",
+                categoryClass: "synthesis",
+                text: "จงคิดแนวทางใหม่ในการแก้ปัญหาการรวมกลุ่มที่ไม่ประสบความสำเร็จ",
+                options: [
+                    "ยกเลิกการรวมกลุ่มที่ไม่สำเร็จทั้งหมด",
+                    "Flexible Integration: Variable Geometry, Coalition of the Willing และ Sectoral Integration",
+                    "บังคับให้ทุกประเทศปฏิบัติเหมือนกัน",
+                    "รอให้สถานการณ์ดีขึ้นเอง"
+                ],
+                correct: 1,
+                explanation: "แนวทางใหม่คือ Flexible Integration: Variable Geometry (ประเทศร่วมในระดับที่พร้อม), Coalition of the Willing (กลุ่มย่อยที่มีเป้าหมายเดียวกัน), Sectoral Integration (รวมกลุ่มเฉพาะสาขา) เพื่อสร้างความยืดหยุ่น"
+            },
+            {
+                category: "การสังเคราะห์และความคิดสร้างสรรค์",
+                categoryClass: "synthesis",
+                text: "จงสร้างวิสัยทัศน์การรวมกลุ่มทางเศรษฐกิจในยุค Metaverse และ Web 3.0",
+                options: [
+                    "การรวมกลุ่มจะไม่เปลี่ยนแปลง",
+                    "Virtual Economic Zones, Digital Citizenship, Crypto-based Trade และ AI-driven Governance",
+                    "กลับไปใช้การค้าแบบดั้งเดิม",
+                    "หยุดการพัฒนาเทคโนโลยี"
+                ],
+                correct: 1,
+                explanation: "ยุค Metaverse จะมี Virtual Economic Zones (เขตเศรษฐกิจเสมือน), Digital Citizenship (สิทธิดิจิทัลข้ามพรมแดน), Crypto-based Trade (การค้าด้วย Digital Currency) และ AI-driven Governance (การบริหารด้วย AI)"
+            },
+
+            // การประเมินและตัดสินใจ (Evaluation & Decision Making) - 6 ข้อ
+            {
+                category: "การประเมินและตัดสินใจ",
+                categoryClass: "evaluation",
+                text: "จงประเมินว่าการรวมกลุ่มแบบใดเหมาะสมที่สุดสำหรับประเทศกำลังพัฒนา?",
+                options: [
+                    "เข้าร่วมกลุ่มที่มีมาตรฐานสูงสุดทันที",
+                    "เริ่มจาก Regional Integration ก่อน แล้วค่อยพัฒนาไปสู่ High-Standard Agreements",
+                    "หลีกเลี่ยงการรวมกลุ่มทั้งหมด",
+                    "เข้าร่วมทุกกลุ่มพร้อมกัน"
+                ],
+                correct: 1,
+                explanation: "ประเทศกำลังพัฒนาควรเริ่มจาก Regional Integration เพื่อสร้างความพร้อม พัฒนามาตรฐาน สร้างประสบการณ์ แล้วค่อยเข้าร่วม High-Standard Agreements เช่น CPTPP เมื่อมีความพร้อม"
+            },
+            {
+                category: "การประเมินและตัดสินใจ",
+                categoryClass: "evaluation",
+                text: "จงตัดสินใจว่าไทยควรให้ความสำคัญกับ RCEP หรือ CPTPP มากกว่ากัน?",
+                options: [
+                    "CPTPP เพราะมีมาตรฐานสูง",
+                    "RCEP เพราะมีตลาดใหญ่",
+                    "ให้ความสำคัญทั้งคู่: RCEP เป็น Market Access, CPTPP เป็น Standard Upgrading",
+                    "ไม่ควรให้ความสำคัญกับทั้งสอง"
+                ],
+                correct: 2,
+                explanation: "ไทยควรให้ความสำคัญทั้งคู่: RCEP ให้ Market Access ไปยัง 30% ของ GDP โลกและ 30% ของประชากรโลก ส่วน CPTPP ช่วยยกระดับมาตรฐานและเชื่อมโยงกับตลาดพัฒนาแล้ว เป็นกลยุทธ์ Complementary"
+            },
+            {
+                category: "การประเมินและตัดสินใจ",
+                categoryClass: "evaluation",
+                text: "จงประเมินผลกระทบของ Brexit ต่อการรวมกลุ่มทางเศรษฐกิจโลก",
+                options: [
+                    "ไม่มีผลกระทบใดๆ",
+                    "สร้างแรงบันดาลใจให้ประเทศอื่นออกจาก EU",
+                    "แสดงให้เห็นว่าการรวมกลุ่มต้องมีความยืดหยุ่นและตอบสนองความต้องการของประชาชน",
+                    "ทำลายการรวมกลุ่มทางเศรษฐกิจทั้งหมด"
+                ],
+                correct: 2,
+                explanation: "Brexit แสดงให้เห็นว่าการรวมกลุ่มต้องมีความยืดหยุ่น คำนึงถึงความต้องการของประชาชน และต้องมีการสื่อสารผลประโยชน์ให้ชัดเจน ไม่ใช่การบังคับหรือการรวมกลุ่มที่ไม่สามารถปรับตัวได้"
+            },
+            {
+                category: "การประเมินและตัดสินใจ",
+                categoryClass: "evaluation",
+                text: "จงประเมินความเหมาะสมของการที่ประเทศเล็กเข้าร่วมกลุ่มกับมหาอำนาจ",
+                options: [
+                    "ไม่เหมาะสม เพราะจะถูกครอบงำ",
+                    "เหมาะสม หากมีกลไกปกป้องและสร้างความสมดุล เช่น ASEAN Way หรือ Small State Coalition",
+                    "ควรรวมกลุ่มกับประเทศเล็กเท่านั้น",
+                    "ไม่ควรรวมกลุ่มเลย"
+                ],
+                correct: 1,
+                explanation: "ประเทศเล็กสามารถรวมกลุ่มกับมหาอำนาจได้ หากมีกลไกปกป้อง เช่น ASEAN Way (ฉันทามติ ไม่แทรกแซงกิจการภายใน), Small State Coalition, หรือ Institutional Safeguards ที่ป้องกันการครอบงำ"
+            },
+            {
+                category: "การประเมินและตัดสินใจ",
+                categoryClass: "evaluation",
+                text: "จงประเมินว่าการรวมกลุ่มทางเศรษฐกิจช่วยลดความขัดแย้งระหว่างประเทศหรือไม่?",
+                options: [
+                    "ไม่ช่วยเลย เพราะยังมีสงครามการค้า",
+                    "ช่วยได้บางส่วน ผ่าน Economic Interdependence, Institutional Dialogue และ Peaceful Dispute Resolution",
+                    "ช่วยได้เสมอและทำให้ไม่มีความขัดแย้ง",
+                    "สร้างความขัดแย้งเพิ่มขึ้น"
+                ],
+                correct: 1,
+                explanation: "การรวมกลุ่มช่วยลดความขัดแย้งผ่าน Economic Interdependence (การพึ่งพากันทำให้ต้นทุนของการขัดแย้งสูง), Institutional Dialogue และ Peaceful Dispute Resolution แต่ไม่ได้กำจัดความขัดแย้งทั้งหมด"
+            },
+            {
+                category: "การประเมินและตัดสินใจ",
+                categoryClass: "evaluation",
+                text: "จงตัดสินใจเชิงกลยุทธ์สำหรับ ASEAN ในการรับมือกับการแข่งขันระหว่าง US และ China",
+                options: [
+                    "เลือกข้างสหรัฐอเมริกา",
+                    "เลือกข้างจีน",
+                    "ใช้กลยุทธ์ ASEAN Centrality และ Strategic Autonomy เพื่อรักษาความเป็นกลาง",
+                    "แยกตัวออกจากความขัดแย้ง"
+                ],
+                correct: 2,
+                explanation: "ASEAN ควรใช้ ASEAN Centrality (ทำให้ ASEAN เป็นศูนย์กลางของการรวมกลุ่มในภูมิภาค) และ Strategic Autonomy (รักษาอิสรภาพในการตัดสินใจ) เพื่อได้ประโยชน์จากทั้งสองฝ่ายโดยไม่ต้องเลือกข้าง"
+            },
+            {
+                category: "การประเมินและตัดสินใจ",
+                categoryClass: "evaluation",
+                text: "จงประเมินความสำเร็จของการรวมกลุ่มทางเศรษฐกิจจากมุมมองของประชาชน",
+                options: [
+                    "วัดจากการเพิ่มขึ้นของ GDP เท่านั้น",
+                    "วัดจาก Job Creation, Income Distribution, Access to Services และ Quality of Life",
+                    "วัดจากการเพิ่มขึ้นของการค้าเท่านั้น",
+                    "วัดจากความพึงพอใจของรัฐบาลเท่านั้น"
+                ],
+                correct: 1,
+                explanation: "ความสำเร็จของการรวมกลุ่มต้องวัดจากมุมมองประชาชน: Job Creation (สร้างงาน), Income Distribution (การกระจายรายได้), Access to Services (การเข้าถึงบริการ), Quality of Life (คุณภาพชีวิต) และ Social Cohesion ไม่ใช่เพียง GDP หรือ Trade Volume"
+            }
+        ];
+
+        // Application state
+        let currentQuestion = 0;
+        let answers = {};
+        let startTime = Date.now();
+
+        // Category mapping
+        const categories = {
+            "ความรู้และความเข้าใจ": 0,
+            "การวิเคราะห์": 1,
+            "การประยุกต์ใช้": 2,
+            "การสังเคราะห์และความคิดสร้างสรรค์": 3,
+            "การประเมินและตัดสินใจ": 4
+        };
+
+        const categoryNames = [
+            "ความรู้และความเข้าใจ",
+            "การวิเคราะห์", 
+            "การประยุกต์ใช้",
+            "การสังเคราะห์และความคิดสร้างสรรค์",
+            "การประเมินและตัดสินใจ"
+        ];
+
+        const categoryColors = [
+            "#FF6B6B", // Red-Orange
+            "#4ECDC4", // Teal
+            "#667eea", // Blue-Purple
+            "#f093fb", // Pink-Purple
+            "#4facfe"  // Blue
+        ];
+
+        // Start test
+        function startTest() {
+            currentQuestion = 0;
+            answers = {};
+            startTime = Date.now();
+            clearStorage();
+            
+            document.getElementById('welcomeScreen').classList.remove('active');
+            document.getElementById('questionScreen').classList.add('active');
+            loadQuestion();
+        }
+
+        // Load current question
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            
+            // Update progress
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `ข้อ ${currentQuestion + 1} จาก ${questions.length}`;
+            
+            // Update question content
+            const categoryDiv = document.getElementById('questionCategory');
+            categoryDiv.textContent = question.category;
+            categoryDiv.className = `question-category ${question.categoryClass}`;
+            
+            document.getElementById('questionText').textContent = question.text;
+            
+            // Create options
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            const letters = ['ก', 'ข', 'ค', 'ง'];
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.onclick = () => selectOption(index);
+                
+                const selectedAnswer = answers[currentQuestion];
+                if (selectedAnswer === index) {
+                    optionDiv.classList.add('selected');
+                }
+                
+                optionDiv.innerHTML = `
+                    <div class="option-letter">${letters[index]}</div>
+                    <div>${option}</div>
+                `;
+                
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Update navigation buttons
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            
+            if (currentQuestion === 0) {
+                prevButton.style.display = 'none';
+            } else {
+                prevButton.style.display = 'block';
+            }
+            
+            // Check if answer is selected
+            const hasAnswer = answers[currentQuestion] !== undefined;
+            nextButton.disabled = !hasAnswer;
+            
+            if (currentQuestion === questions.length - 1) {
+                nextButton.textContent = 'ดูผลลัพธ์';
+            } else {
+                nextButton.textContent = 'ถัดไป';
+            }
+        }
+
+        // Select option
+        function selectOption(index) {
+            // Remove previous selection
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selection to clicked option
+            event.currentTarget.classList.add('selected');
+            
+            // Store answer
+            answers[currentQuestion] = index;
+            
+            // Save to storage
+            saveToStorage();
+            
+            // Enable next button
+            document.getElementById('nextButton').disabled = false;
+            
+            // Add haptic feedback (if supported)
+            if (navigator.vibrate) {
+                navigator.vibrate(10);
+            }
+        }
+
+        // Next question
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Previous question
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+
+        // Calculate scores and show results
+        function showResults() {
+            document.getElementById('questionScreen').classList.remove('active');
+            document.getElementById('resultsScreen').classList.add('active');
+            
+            // Calculate scores by category
+            const categoryScores = new Array(5).fill(0);
+            const categoryTotals = new Array(5).fill(0);
+            
+            questions.forEach((question, index) => {
+                const categoryIndex = categories[question.category];
+                categoryTotals[categoryIndex]++;
+                
+                if (answers[index] === question.correct) {
+                    categoryScores[categoryIndex]++;
+                }
+            });
+            
+            // Convert to percentages
+            const percentageScores = categoryScores.map((score, index) => 
+                categoryTotals[index] > 0 ? Math.round((score / categoryTotals[index]) * 100) : 0
+            );
+            
+            // Calculate total score
+            const totalCorrect = Object.keys(answers).reduce((total, questionIndex) => {
+                return total + (answers[questionIndex] === questions[questionIndex].correct ? 1 : 0);
+            }, 0);
+            
+            const totalScore = Math.round((totalCorrect / questions.length) * 100);
+            
+            // Display total score
+            document.getElementById('totalScore').textContent = totalScore;
+            
+            // Display summary statistics
+            displaySummaryStats(totalCorrect, questions.length);
+            
+            // Create radar chart
+            createRadarChart(percentageScores);
+            
+            // Display individual scores
+            displayIndividualScores(percentageScores);
+            
+            // Display answers review
+            displayAnswersReview();
+        }
+
+        // Display summary statistics
+        function displaySummaryStats(correct, total) {
+            const container = document.getElementById('summaryStats');
+            const incorrect = total - correct;
+            const percentage = Math.round((correct / total) * 100);
+            
+            container.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #4ECDC4;">${correct}</div>
+                    <div class="stat-label">ข้อถูก</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #FF6B6B;">${incorrect}</div>
+                    <div class="stat-label">ข้อผิด</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${percentage}%</div>
+                    <div class="stat-label">คะแนนรวม</div>
+                </div>
+            `;
+        }
+
+        // Create radar chart
+        function createRadarChart(scores) {
+            const canvas = document.getElementById('radarChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const size = 280;
+            const centerX = size / 2;
+            const centerY = size / 2;
+            const radius = 100;
+            
+            // Set canvas size explicitly
+            canvas.width = size;
+            canvas.height = size;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Check for dark mode
+            const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const gridColor = isDarkMode ? '#38383A' : '#E5E5EA';
+            const textColor = isDarkMode ? '#FFFFFF' : '#000000';
+            const labelColor = isDarkMode ? '#8E8E93' : '#8E8E93';
+            
+            // Draw background circles
+            ctx.strokeStyle = gridColor;
+            ctx.lineWidth = 1;
+            for (let i = 1; i <= 5; i++) {
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, (radius * i) / 5, 0, 2 * Math.PI);
+                ctx.stroke();
+            }
+            
+            // Draw percentage labels
+            ctx.fillStyle = labelColor;
+            ctx.font = '10px -apple-system, BlinkMacSystemFont, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            for (let i = 1; i <= 5; i++) {
+                const labelRadius = (radius * i) / 5;
+                const percentage = (i * 20) + '%';
+                ctx.fillText(percentage, centerX, centerY - labelRadius);
+            }
+            
+            // Draw axes and labels
+            const angleStep = (2 * Math.PI) / 5;
+            const shortLabels = ['ความรู้', 'วิเคราะห์', 'ประยุกต์', 'สังเคราะห์', 'ประเมิน'];
+            
+            ctx.strokeStyle = gridColor;
+            ctx.lineWidth = 1;
+            
+            for (let i = 0; i < 5; i++) {
+                const angle = i * angleStep - Math.PI / 2;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+                
+                // Draw axis line
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                
+                // Draw labels
+                ctx.fillStyle = textColor;
+                ctx.font = '11px -apple-system, BlinkMacSystemFont, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                const labelX = centerX + Math.cos(angle) * (radius + 25);
+                const labelY = centerY + Math.sin(angle) * (radius + 25);
+                
+                ctx.fillText(shortLabels[i], labelX, labelY);
+            }
+            
+            // Draw score polygon
+            ctx.beginPath();
+            ctx.strokeStyle = '#00C9FF';
+            ctx.fillStyle = 'rgba(0, 201, 255, 0.2)';
+            ctx.lineWidth = 3;
+            
+            for (let i = 0; i < 5; i++) {
+                const angle = i * angleStep - Math.PI / 2;
+                const scoreRadius = (scores[i] / 100) * radius;
+                const x = centerX + Math.cos(angle) * scoreRadius;
+                const y = centerY + Math.sin(angle) * scoreRadius;
+                
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            // Draw score points
+            for (let i = 0; i < 5; i++) {
+                const angle = i * angleStep - Math.PI / 2;
+                const scoreRadius = (scores[i] / 100) * radius;
+                const x = centerX + Math.cos(angle) * scoreRadius;
+                const y = centerY + Math.sin(angle) * scoreRadius;
+                
+                // Draw colored points based on category
+                ctx.fillStyle = categoryColors[i];
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                // Add score text near points
+                ctx.fillStyle = categoryColors[i];
+                ctx.font = 'bold 10px -apple-system, BlinkMacSystemFont, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(scores[i] + '%', x, y - 12);
+            }
+        }
+
+        // Get performance level
+        function getPerformanceLevel(score) {
+            if (score >= 80) return { text: 'ยอดเยี่ยม', class: 'excellent' };
+            if (score >= 60) return { text: 'ดี', class: 'good' };
+            if (score >= 40) return { text: 'ปานกลาง', class: 'average' };
+            return { text: 'ต้องพัฒนา', class: 'needs-improvement' };
+        }
+
+        // Display individual scores
+        function displayIndividualScores(scores) {
+            const container = document.getElementById('scoresContainer');
+            container.innerHTML = '';
+            
+            categoryNames.forEach((name, index) => {
+                const scoreItem = document.createElement('div');
+                scoreItem.className = 'score-item';
+                
+                const score = scores[index];
+                const level = getPerformanceLevel(score);
+                
+                scoreItem.innerHTML = `
+                    <div class="score-label">${name}</div>
+                    <div style="display: flex; align-items: center;">
+                        <div class="score-value" style="color: ${categoryColors[index]}">${score}%</div>
+                        <div class="performance-level ${level.class}">${level.text}</div>
+                    </div>
+                `;
+                
+                container.appendChild(scoreItem);
+            });
+        }
+
+        // Display answers review with explanations
+        function displayAnswersReview() {
+            const container = document.getElementById('answersReview');
+            const letters = ['ก', 'ข', 'ค', 'ง'];
+            
+            // Group questions by category
+            const categorizedQuestions = {};
+            questions.forEach((question, index) => {
+                if (!categorizedQuestions[question.category]) {
+                    categorizedQuestions[question.category] = [];
+                }
+                categorizedQuestions[question.category].push({
+                    ...question,
+                    index: index,
+                    userAnswer: answers[index],
+                    isCorrect: answers[index] === question.correct
+                });
+            });
+            
+            let reviewHTML = '<div class="review-section"><h3 class="review-title">📝 เฉลยแบบทดสอบพร้อมคำอธิบาย</h3>';
+            
+            Object.keys(categorizedQuestions).forEach((category, catIndex) => {
+                const categoryQuestions = categorizedQuestions[category];
+                const correctCount = categoryQuestions.filter(q => q.isCorrect).length;
+                
+                reviewHTML += `
+                    <div style="margin: 20px 0;">
+                        <h4 style="color: ${categoryColors[catIndex]}; font-size: 16px; margin-bottom: 12px;">
+                            ${category} (${correctCount}/${categoryQuestions.length} ข้อ)
+                        </h4>
+                `;
+                
+                categoryQuestions.forEach((question, qIndex) => {
+                    const itemClass = question.isCorrect ? 'correct' : 'incorrect';
+                    const icon = question.isCorrect ? '✅' : '❌';
+                    
+                    reviewHTML += `
+                        <div class="review-item ${itemClass}">
+                            <div class="review-question">
+                                ${icon} ข้อ ${question.index + 1}: ${question.text}
+                            </div>
+                            <div class="review-answer">
+                                คำตอบของคุณ: ${letters[question.userAnswer]} ${question.options[question.userAnswer]}
+                            </div>
+                            ${!question.isCorrect ? `
+                                <div class="review-correct">
+                                    เฉลย: ${letters[question.correct]} ${question.options[question.correct]}
+                                </div>
+                            ` : ''}
+                            <div class="review-explanation">
+                                💡 คำอธิบาย: ${question.explanation}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                reviewHTML += '</div>';
+            });
+            
+            reviewHTML += '</div>';
+            container.innerHTML = reviewHTML;
+        }
+
+        // Restart test function
+        function restartTest() {
+            currentQuestion = 0;
+            answers = {};
+            startTime = Date.now();
+            clearStorage();
+            
+            document.getElementById('resultsScreen').classList.remove('active');
+            document.getElementById('welcomeScreen').classList.add('active');
+        }
+
+        // Storage functions
+        function saveToStorage() {
+            try {
+                const data = {
+                    questions: questions,
+                    answers: answers,
+                    currentQuestion: currentQuestion,
+                    timestamp: Date.now()
+                };
+                localStorage.setItem('economic_integration_posttest_data', JSON.stringify(data));
+            } catch (error) {
+                console.log('Could not save to localStorage:', error);
+            }
+        }
+
+        function loadFromStorage() {
+            try {
+                const stored = localStorage.getItem('economic_integration_posttest_data');
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    return data;
+                }
+            } catch (error) {
+                console.log('Could not load from localStorage:', error);
+            }
+            return null;
+        }
+
+        function clearStorage() {
+            try {
+                localStorage.removeItem('economic_integration_posttest_data');
+            } catch (error) {
+                console.log('Could not clear localStorage:', error);
+            }
+        }
+
+        // PWA functionality
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            const installButton = document.createElement('button');
+            installButton.textContent = 'ติดตั้งแอป';
+            installButton.className = 'start-button';
+            installButton.style.marginTop = '20px';
+            installButton.onclick = () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                    installButton.remove();
+                });
+            };
+            
+            const welcomeScreen = document.querySelector('.welcome-screen');
+            if (welcomeScreen && !document.querySelector('#installButton')) {
+                installButton.id = 'installButton';
+                welcomeScreen.appendChild(installButton);
+            }
+        });
+
+        // Create manifest dynamically
+        const manifest = {
+            "name": "Post-test การรวมเขตเศรษฐกิจ",
+            "short_name": "Economic Integration Post-test",
+            "description": "ระบบประเมินผลการเรียนรู้หลังเรียนการรวมเขตเศรษฐกิจ",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#667eea",
+            "theme_color": "#00C9FF",
+            "orientation": "portrait",
+            "icons": [
+                {
+                    "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iNDAiIGZpbGw9IiMwMEM5RkYiLz4KPHN2ZyB4PSI0OCIgeT0iNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyTDEzLjA5IDguMjZMMjAgOUwxMy4wOSAxNS43NEwxMiAyMkwxMC45MSAxNS43NEw0IDlMMTAuOTEgOC4yNkwxMiAyWiIvPgo8L3N2Zz4KPC9zdmc+Cg==",
+                    "sizes": "192x192",
+                    "type": "image/svg+xml"
+                },
+                {
+                    "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTA0IiBmaWxsPSIjMDBDOUZGIi8+CjxzdmcgeD0iMTI4IiB5PSIxMjgiIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IndoaXRlIj4KPHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIi8+Cjwvc3ZnPgo8L3N2Zz4K",
+                    "sizes": "512x512",
+                    "type": "image/svg+xml"
+                }
+            ]
+        };
+        
+        // Create and inject manifest
+        const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+        const manifestURL = URL.createObjectURL(manifestBlob);
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = manifestURL;
+        document.head.appendChild(link);
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Economic Integration Post-test App initialized');
+            
+            const savedData = loadFromStorage();
+            if (savedData && savedData.answers && Object.keys(savedData.answers).length > 0) {
+                // Optional: Restore previous session
+            }
+        });
+
+        // Handle page visibility changes
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                saveToStorage();
+            }
+        });
+
+        // Handle beforeunload to save progress
+        window.addEventListener('beforeunload', () => {
+            saveToStorage();
+        });
+    </script>
+</body>
+</html>
